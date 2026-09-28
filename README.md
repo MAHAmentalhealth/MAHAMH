@@ -1,39 +1,28 @@
-# Mental Health Hub — concept prototype
+# MAHA Mental Health Hub
 
-A responsive, static proof of concept based on the MAHA Mental Health Hub and Capacity Fund draft. It is a proposed initiative, not an official MAHA Center website. The page links back to [MAHA Center](https://www.mahacenter.org/).
+A six-page static site based on the MAHA Mental Health Hub and Capacity Fund draft. The design draws on MAHA Center's cream, charcoal, and copper language, then uses forest green, plum, a typographic mark, and an editorial layout to give this hub its own identity.
 
-## What works
+## Pages
 
-- Landing page navigation, including a mobile menu.
-- Searchable and filterable sample resource library.
-- Links to source organizations, peer support, ICI withdrawal information, FDA drug information, and MedWatch.
-- Proposed policy, featured work, Capacity Fund, and email flows shown with their current status. The header's Donate button jumps to the Capacity Fund section; the final payment button is disabled until a dedicated donation destination is approved.
+- `index.html` — vision and routes through the hub
+- `evidence.html` — informed decisions, drug information, withdrawal, and other approaches
+- `support.html` — peer and community support
+- `organizations.html` — searchable, filterable directory
+- `policy.html` — issue areas and primary public sources
+- `giving.html` — field capacity and the clearly identified ICI donation route
 
-The sample listings and public language need editorial and institutional approval. Donation and signup forms are deliberately inactive until their owners, data handling, and processes are established.
+`styles.css`, `app.js`, and `favicon.svg` are shared assets. `build.py` contains the page copy and layout; run `python build.py` after editing it to regenerate the HTML. The site works on GitHub Pages without running Python at deployment.
 
-## Preview locally
+## Publish updates to GitHub Pages
 
-Open `index.html` in a browser, or run `python -m http.server 8000` in this folder and visit `http://localhost:8000`.
+Upload **all six HTML files, `styles.css`, `app.js`, and `favicon.svg`** to the root of the `MAHAMH` repository and commit. GitHub Pages is already configured to deploy from `main / (root)`. Do not upload the ZIP alone or put the files in a nested folder. `build.py` and this README are optional in the repository, but useful for later edits.
 
-## Publish on GitHub Pages
+## Donation arrangement
 
-1. Create a new GitHub repository, for example `mental-health-hub`.
-2. Upload `index.html`, `styles.css`, and `app.js` into the repository root. Keep the files at the root, not inside an extra folder.
-3. In the repository, open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, then `main` and `/ (root)`. Save.
-4. GitHub will display the public `github.io` URL on the Pages settings screen. For a project repository it has the form `https://USERNAME.github.io/mental-health-hub/`.
+The site's header Donate button leads to `giving.html`, where ICI is named before the external payment link. The link goes to ICI's dedicated MAHA Mental Health Givebutter campaign at `https://givebutter.com/maha-mental-health-gvp1bu`. It does **not** send gifts to a MAHA-managed Capacity Fund. Confirm the destination and donation language with ICI and MAHA before promoting the site as an official joint initiative.
 
-No build step, package manager, API keys, or backend is needed. The site uses relative asset paths so it also works under a GitHub project path.
+There are no bank account details in this repository. Bank payout information belongs in ICI's authenticated Givebutter/Stripe Connect account, never in GitHub source code. An authorized ICI finance administrator can review the existing payout method in Givebutter's **Finance/Payouts → Settings**. The dedicated campaign is already linked in `build.py` and `giving.html`. If the campaign URL changes, update `build.py`, regenerate, and upload `giving.html`.
 
-## Connect a domain
+## Editorial maintenance
 
-After the GitHub Pages address works, enter the domain in **Settings → Pages → Custom domain**. For a `www` or other subdomain, create a DNS `CNAME` record pointing to `USERNAME.github.io` (replace `USERNAME`; omit the repository name). For an apex/root domain, use the current GitHub Pages `A`/`AAAA` values from [GitHub's domain guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site). Let DNS and the certificate provision, then enable **Enforce HTTPS** in Pages. GitHub may create a `CNAME` file automatically when publishing from a branch; preserve it in future uploads.
-
-If this will ultimately live under `mahacenter.org`, the MAHA Center domain administrator must create the DNS record or route. A separate domain can be used for the demonstration without changing MAHA's existing site.
-
-## Edit content
-
-- Page copy and sections: `index.html`
-- Visual design and mobile layouts: `styles.css`
-- Resource entries and filter behavior: `app.js`
-
-Before an official launch, confirm MAHA Center's approval, resource review and correction process, institutional roles, fund governance, newsletter provider and privacy terms, and the final domain. Replace the concept notice only after that approval.
+The organization entries live in `app.js`. Verify each link, description, and current program before an official launch. Policy status belongs at primary sources linked on `policy.html`; the page does not claim a live tracker. Review the public pages regularly and maintain a correction/removal process. Inclusion in the directory does not determine funding eligibility.

@@ -1,38 +1,17 @@
-const resources = [
-  {name:'Inner Compass Initiative: Learn',type:'withdrawal',label:'Withdrawal & informed choice',description:'Articles on psychiatric drugs, withdrawal, and questions to consider before making changes.',url:'https://www.theinnercompass.org/learn',source:'Inner Compass Initiative'},
-  {name:'Companion Guide: Prepare',type:'withdrawal',label:'Withdrawal & informed choice',description:'A step-by-step collection of considerations for people exploring whether and when to taper.',url:'https://www.theinnercompass.org/prepare',source:'Inner Compass Initiative'},
-  {name:'FDA: Learn About Your Medicines',type:'evidence',label:'Government information',description:'A guide to finding medication guides and FDA-approved patient information for particular medicines.',url:'https://www.fda.gov/patients/learn-about-your-medicines',source:'U.S. Food and Drug Administration'},
-  {name:'Inner Compass Exchange',type:'peer',label:'Peer connection',description:'An online peer community for discussion, learning, and mutual support.',url:'https://exchange.theinnercompass.org/',source:'Inner Compass Initiative'},
-  {name:'Directory of Peer Respites',type:'peer',label:'Community support',description:'A directory of voluntary, peer-operated respite programs and their contact information.',url:'https://power2u.org/directory-of-peer-respites/',source:'National Empowerment Center'},
-  {name:'Hearing Voices USA Groups',type:'peer',label:'Peer connection',description:'A listing of peer groups for people who hear voices or have related experiences.',url:'https://www.hearingvoicesusa.org/hvn-usa-groups-list',source:'Hearing Voices USA'},
-  {name:'FDA MedWatch',type:'accountability',label:'Safety reporting',description:'Report suspected problems with medicines and other medical products to the FDA.',url:'https://www.fda.gov/safety/medwatch-fda-safety-information-and-adverse-event-reporting-program',source:'U.S. Food and Drug Administration'}
+const menuButton=document.querySelector('.menu-toggle');const nav=document.querySelector('#site-nav');
+menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
+const entries=[
+ {name:'Inner Compass Initiative',category:'informed-choice',label:'Informed choice & withdrawal',description:'Public education on psychiatric diagnoses, drugs, withdrawal, and a peer-to-peer Exchange community.',url:'https://www.theinnercompass.org/'},
+ {name:'Benzodiazepine Information Coalition',category:'informed-choice',label:'Drug safety & informed consent',description:'Education and advocacy concerning prescribed benzodiazepines, adverse effects, and informed consent.',url:'https://www.benzoinfo.com/'},
+ {name:'Akathisia Alliance for Education and Research',category:'informed-choice',label:'Adverse effects & education',description:'Resources for recognizing akathisia and advancing education and research about the condition.',url:'https://akathisiaalliance.org/'},
+ {name:'Inner Compass Exchange',category:'peer-support',label:'Online peer community',description:'A peer-to-peer space for discussion, learning, events, and mutual support.',url:'https://exchange.theinnercompass.org/'},
+ {name:'National Empowerment Center',category:'peer-support',label:'Peer support & respite',description:'Peer-led resources, technical assistance, and a directory of peer respite programs.',url:'https://power2u.org/'},
+ {name:'Hearing Voices USA',category:'peer-support',label:'Peer groups',description:'Resources and groups for people who hear voices and have other unusual experiences.',url:'https://www.hearingvoicesusa.org/'},
+ {name:'Project LETS',category:'peer-support',label:'Community peer support',description:'Peer support collectives and community-based responses to mental distress.',url:'https://projectlets.org/'},
+ {name:'RxISK',category:'research',label:'Drug safety & accountability',description:'Independent information and patient reports about potential adverse effects of prescription medicines.',url:'https://rxisk.org/'},
+ {name:'Metabolic Mind',category:'approaches',label:'Metabolism & mental health',description:'Education and research resources on emerging metabolic approaches to mental health.',url:'https://www.metabolicmind.org/'}
 ];
-const grid = document.querySelector('#resource-grid');
-const count = document.querySelector('#results-count');
-const query = document.querySelector('#resource-search');
-let selected = 'all';
-function renderResources(){
-  const term = query.value.trim().toLocaleLowerCase();
-  const items = resources.filter(item => (selected === 'all' || item.type === selected) && `${item.name} ${item.label} ${item.description} ${item.source}`.toLocaleLowerCase().includes(term));
-  grid.replaceChildren();
-  count.textContent = `${items.length} ${items.length === 1 ? 'resource' : 'resources'} shown`;
-  if (!items.length){const empty=document.createElement('p');empty.className='empty-state';empty.textContent='No resources match this search. Try a different term or topic.';grid.append(empty);return;}
-  for(const item of items){
-    const article=document.createElement('article');article.className='resource-card';
-    const tag=document.createElement('span');tag.className='tag';tag.textContent=item.label;
-    const title=document.createElement('h3');title.textContent=item.name;
-    const desc=document.createElement('p');desc.textContent=item.description;
-    const link=document.createElement('a');link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=`Visit ${item.source} ↗`;
-    article.append(tag,title,desc,link);grid.append(article);
-  }
-}
-document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{
-  selected=button.dataset.filter;
-  document.querySelectorAll('.filter').forEach(el=>{const active=el===button;el.classList.toggle('active',active);el.setAttribute('aria-pressed',String(active));});
-  renderResources();
-}));
-query.addEventListener('input',renderResources);
-renderResources();
-const toggle=document.querySelector('#menu-toggle');const nav=document.querySelector('#primary-nav');
-toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
-nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+const list=document.querySelector('#directory-list');
+if(list){const search=document.querySelector('#directory-search'),count=document.querySelector('#result-count');let active='all';
+function render(){const term=search.value.trim().toLowerCase();const matches=entries.filter(e=>(active==='all'||e.category===active)&&`${e.name} ${e.label} ${e.description}`.toLowerCase().includes(term));list.replaceChildren();count.textContent=`${matches.length} ${matches.length===1?'organization':'organizations'} shown`;if(!matches.length){const p=document.createElement('p');p.className='empty-state';p.textContent='No organizations match. Try another term or area of work.';list.append(p);return;}for(const e of matches){const a=document.createElement('article');a.className='directory-entry';a.dataset.category=e.category;const tag=document.createElement('span');tag.className='entry-tag';tag.textContent=e.label;const h=document.createElement('h3');h.textContent=e.name;const p=document.createElement('p');p.textContent=e.description;const link=document.createElement('a');link.href=e.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Visit organization ↗';a.append(tag,h,p,link);list.append(a);}}
+document.querySelectorAll('.filters button').forEach(button=>button.addEventListener('click',()=>{active=button.dataset.filter;document.querySelectorAll('.filters button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));render();}));search.addEventListener('input',render);const hash=location.hash.slice(1);if(['informed-choice','peer-support','research','approaches'].includes(hash)){const button=document.querySelector(`.filters button[data-filter="${hash}"]`);button.click();}else render();}
