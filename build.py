@@ -54,9 +54,16 @@ giving = '''<section class="page-hero giving-hero"><div class="shell"><p class="
 
 def field(label, name, kind='text', required=True, hint=''):
     req = ' required' if required else ''
+    if kind == 'url' and not hint:
+        hint = 'A website beginning with www or https:// is fine.'
     note = f'<small>{hint}</small>' if hint else ''
     constraints = ' min="1" step="1"' if kind == 'number' else ''
-    control = f'<textarea id="{name}" name="{name}" rows="5"{req}></textarea>' if kind == 'textarea' else f'<input id="{name}" name="{name}" type="{kind}"{constraints}{req}>'
+    if kind == 'textarea':
+        control = f'<textarea id="{name}" name="{name}" rows="5"{req}></textarea>'
+    elif kind == 'url':
+        control = f'<input id="{name}" name="{name}" type="text" inputmode="url" autocomplete="url" placeholder="www.example.org"{req}>'
+    else:
+        control = f'<input id="{name}" name="{name}" type="{kind}"{constraints}{req}>'
     return f'<div class="application-field"><label for="{name}">{label}{" <span>(optional)</span>" if not required else ""}</label>{note}{control}</div>'
 
 def application(kind, endpoint, title, intro, fields):
