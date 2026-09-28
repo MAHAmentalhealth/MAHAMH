@@ -19,10 +19,10 @@ Upload **all six HTML files, `styles.css`, `app.js`, and `favicon.svg`** to the 
 
 ## Donation arrangement
 
-The site's header Donate button leads to `giving.html`, where ICI is named before the external payment link. The link goes to ICI's dedicated MAHA Mental Health Givebutter campaign at `https://givebutter.com/maha-mental-health-gvp1bu`. It does **not** send gifts to a MAHA-managed Capacity Fund. Confirm the destination and donation language with ICI and MAHA before promoting the site as an official joint initiative.
+The header and primary donation buttons link directly to ICI's dedicated MAHA Mental Health Givebutter campaign at `https://givebutter.com/maha-mental-health-gvp1bu`. It does **not** send gifts to a MAHA-managed Capacity Fund. Confirm the destination and donation language with ICI and MAHA before promoting the site as an official joint initiative.
 
-There are no bank account details in this repository. Bank payout information belongs in ICI's authenticated Givebutter/Stripe Connect account, never in GitHub source code. An authorized ICI finance administrator can review the existing payout method in Givebutter's **Finance/Payouts → Settings**. The dedicated campaign is already linked in `build.py` and `giving.html`. If the campaign URL changes, update `build.py`, regenerate, and upload `giving.html`.
+There are no bank account details in this repository. Bank payout information belongs in ICI's authenticated Givebutter/Stripe Connect account, never in GitHub source code. An authorized ICI finance administrator can review the existing payout method in Givebutter's **Finance/Payouts → Settings**. The dedicated campaign URL is defined in `build.py` and used throughout the generated pages. If it changes, update `DONATE_URL` and the other page links, regenerate, and upload the HTML files.
 
 ## Editorial maintenance
 
-The organization entries live in `app.js`. Verify each link, description, and current program before an official launch. Policy status belongs at primary sources linked on `policy.html`; the page does not claim a live tracker. Review the public pages regularly and maintain a correction/removal process. Inclusion in the directory does not determine funding eligibility.
+The organization entries live in `app.js`. Verify each link, description, and current program before an official launch. Policy status belongs at primary sources linked on `policy.html`. Delilah is linked as an optional bill tracker; Regulations.gov is the source for agency rulemaking. The page does not claim to operate its own live tracker. Review the public pages regularly and maintain a correction/removal process. Inclusion in the directory does not determine funding eligibility.
