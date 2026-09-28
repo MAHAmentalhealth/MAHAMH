@@ -7,7 +7,7 @@ A responsive, static proof of concept based on the MAHA Mental Health Hub and Ca
 - Landing page navigation, including a mobile menu.
 - Searchable and filterable sample resource library.
 - Links to source organizations, peer support, ICI withdrawal information, FDA drug information, and MedWatch.
-- Proposed policy, featured work, Capacity Fund, and email flows shown with their current status.
+- Proposed policy, featured work, Capacity Fund, and email flows shown with their current status. The header's Donate button jumps to the Capacity Fund section; the final payment button is disabled until a dedicated donation destination is approved.
 
 The sample listings and public language need editorial and institutional approval. Donation and signup forms are deliberately inactive until their owners, data handling, and processes are established.
 
