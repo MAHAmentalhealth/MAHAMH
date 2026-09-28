@@ -1,10 +1,10 @@
-# MAHA Mental Health Hub
+# MAHA Mental Health Field Guide
 
-A six-page static site based on the MAHA Mental Health Hub draft. The design draws on MAHA Center's cream, charcoal, and copper language, then uses forest green, plum, a typographic mark, and an editorial layout to give this hub its own identity.
+A six-page static site based on the MAHA Mental Health Hub draft. The design draws on MAHA Center's cream, charcoal, and copper language, then uses forest green, plum, a typographic mark, and an editorial layout to give this guide its own identity.
 
 ## Pages
 
-- `index.html` — vision and routes through the hub
+- `index.html` — vision and routes through the guide
 - `evidence.html` — informed decisions, drug information, withdrawal, and other approaches
 - `support.html` — peer and community support
 - `organizations.html` — searchable, filterable directory
@@ -25,4 +25,4 @@ There are no bank account details in this repository. Bank payout information be
 
 ## Editorial maintenance
 
-The 21 directory entries in `app.js` include the organizations and programs named for review in the supplied hub draft, plus ICRI, Hearing Voices Network USA, Intentional Peer Support, and Surviving Antidepressants. Each card explains the group’s work and its relevance to the hub. The directory does not represent a formal partner list. Verify each link, description, and current program with ICI before an official launch. For tapering links, review the full destination before inclusion: the hub selects resources describing progressively smaller reductions of no more than 10% of the most recent dose over about a month, with slower pacing or holds as needed. Do not add resources that recommend larger cuts as a starting option. Policy status belongs at primary sources linked on `policy.html`. Delilah is linked as an optional bill tracker; Regulations.gov is the source for agency rulemaking. The page does not claim to operate its own live tracker. Review the public pages regularly and maintain a correction/removal process. Directory inclusion is not a claim of partnership or endorsement.
+The 21 directory entries in `app.js` include the organizations and programs named for review in the supplied hub draft, plus ICRI, Hearing Voices Network USA, Intentional Peer Support, and Surviving Antidepressants. Each card explains the group’s work and its relevance to the guide. The directory does not represent a formal partner list. Verify each link, description, and current program with ICI before an official launch. For tapering links, review the full destination before inclusion: the guide selects resources describing progressively smaller reductions of no more than 10% of the most recent dose over about a month, with slower pacing or holds as needed. Do not add resources that recommend larger cuts as a starting option. Policy status belongs at primary sources linked on `policy.html`. Delilah is linked as an optional bill tracker; Regulations.gov is the source for agency rulemaking. The page does not claim to operate its own live tracker. Review the public pages regularly and maintain a correction/removal process. Directory inclusion is not a claim of partnership or endorsement.
