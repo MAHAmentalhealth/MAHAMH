@@ -1,6 +1,6 @@
 # MAHA Mental Health Field Guide
 
-A six-page static site based on the MAHA Mental Health Hub draft. The design draws on MAHA Center's cream, charcoal, and copper language, then uses forest green, plum, a typographic mark, and an editorial layout to give this guide its own identity.
+An eight-page static site based on the MAHA Mental Health Hub draft. The design draws on MAHA Center's cream, charcoal, and copper language, then uses forest green, plum, a typographic mark, and an editorial layout to give this guide its own identity.
 
 ## Pages
 
@@ -10,12 +10,14 @@ A six-page static site based on the MAHA Mental Health Hub draft. The design dra
 - `organizations.html` — searchable, filterable directory
 - `policy.html` — issue areas and primary public sources
 - `giving.html` — the clearly identified ICI donation route
+- `listing-application.html` — directory listing application
+- `funding-application.html` — funding consideration application
 
 `styles.css`, `app.js`, and `favicon.svg` are shared assets. `build.py` contains the page copy and layout; run `python build.py` after editing it to regenerate the HTML. The site works on GitHub Pages without running Python at deployment.
 
 ## Publish updates to GitHub Pages
 
-Upload **all six HTML files, `styles.css`, `app.js`, and `favicon.svg`** to the root of the `MAHAMH` repository and commit. GitHub Pages is already configured to deploy from `main / (root)`. Do not upload the ZIP alone or put the files in a nested folder. `build.py` and this README are optional in the repository, but useful for later edits.
+Upload **all eight HTML files, `styles.css`, `app.js`, and `favicon.svg`** to the root of the `MAHAMH` repository and commit. GitHub Pages is already configured to deploy from `main / (root)`. Do not upload the ZIP alone or put the files in a nested folder. `build.py` and this README are optional in the repository, but useful for later edits.
 
 ## Donation arrangement
 
@@ -27,4 +29,10 @@ There are no bank account details in this repository. Bank payout information be
 
 The 21 directory entries in `app.js` include the organizations and programs named for review in the supplied hub draft, plus ICRI, Hearing Voices Network USA, Intentional Peer Support, and Surviving Antidepressants. Each card explains the group’s work and its relevance to the guide. The directory does not represent a formal partner list. Verify each link, description, and current program with ICI before an official launch. For tapering links, review the full destination before inclusion: the guide selects resources describing progressively smaller reductions of no more than 10% of the most recent dose over about a month, with slower pacing or holds as needed. Do not add resources that recommend larger cuts as a starting option. Policy status belongs at primary sources linked on `policy.html`. Delilah is linked as an optional bill tracker; Regulations.gov is the source for agency rulemaking. The page does not claim to operate its own live tracker. Review the public pages regularly and maintain a correction/removal process. Directory inclusion is not a claim of partnership or endorsement.
 
-The **Apply for a listing** link opens ICI's existing contact form, which accepts resource suggestions. The **Apply for funding consideration** link on `giving.html` uses the same form but asks for a distinct subject and funding details. These are two separate requests routed through one existing ICI intake form. ICI must monitor and triage them. Neither is an on-site form or an established grant application workflow. Replace these links with dedicated forms when available. The public funding paragraph describes the coalition fund as a goal and clearly identifies current donations as going to ICI; update its governance and allocation language when the fund is established.
+There are two new, separate forms on this site. The directory links to `listing-application.html`; the giving page links to `funding-application.html`. They collect different information and must have distinct submission endpoints. The public funding paragraph describes the coalition fund as a goal and clearly identifies current donations as going to ICI; update governance and allocation language when the fund is established.
+
+## Form submissions
+
+GitHub Pages cannot receive form submissions itself. The two forms are connected to separate Formspree endpoints, provided by the site owner: `listing-application.html` posts to `https://formspree.io/f/xljdabkv`, and `funding-application.html` posts to `https://formspree.io/f/xzezyrql`. Their Submit buttons are enabled. After upload, send one test submission through each live page and verify it arrives in the correct Formspree dashboard and notification inbox; then delete the tests. Check that notifications go to the people responsible for reviewing each type of application.
+
+Formspree's free plan currently permits two notification email addresses and starts at 50 submissions per month. Its hosted endpoint processes the form and stores submissions in the account; assign access to the appropriate ICI/MAHA reviewers. Applicants are asked not to submit sensitive health information. If an endpoint changes, update the two constants near the top of `build.py`, regenerate the HTML, and test again.
