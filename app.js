@@ -67,7 +67,7 @@ if (list) {
       link.href = e.url;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.textContent = 'Explore their work ↗';
+      link.textContent = 'Explore their work ↗︎';
       a.append(tag, h, p, why, link);
       list.append(a);
     }
