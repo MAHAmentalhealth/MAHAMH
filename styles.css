@@ -29,3 +29,50 @@
 .institute-signature{display:inline-block;color:#d3e1ea;border-left:2px solid var(--copper);padding-left:13px;margin:-8px 0 24px;font:600 .68rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase}.hero-content .institute-signature+h1{margin-top:0}.footer-institute{color:#b8cfdd;font:600 .65rem/1.5 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin:18px 0 9px}.status-tag{display:inline-block;background:#e1ebf1;color:#254764;border:1px solid #a9bfcd;padding:5px 9px;font:600 .66rem/1.35 var(--mono);letter-spacing:.03em;margin-top:12px}.spotlight-grid .status-tag{display:table}.funding-status{margin:0 0 15px}
 
 .institute-priorities{margin-bottom:14px}.state-efforts{margin-top:0;margin-bottom:70px;border-left-color:var(--blue);background:#f8f8f1}
+
+/* Phone layout: scale the editorial type and keep every action within its card. */
+@media(max-width:650px){
+  h1,h2,h3{overflow-wrap:break-word}
+  h2{font-size:clamp(2.25rem,10vw,3.1rem);line-height:1.08}
+  .home-hero h1,.page-hero h1{font-size:clamp(2.75rem,11.5vw,4rem);line-height:1.02}
+  .hero-layout{min-height:0}
+  .hero-content{padding:48px 0 28px}
+  .hero-index{margin:0 0 32px;box-shadow:none}
+  .hero-rule{flex-wrap:wrap;line-height:1.5}
+  .page-hero{padding:54px 0 60px}
+  .page-hero:after{font-size:13rem;bottom:-35px}
+  .section-head{margin-bottom:28px}
+  .page-aside{margin-bottom:38px}
+  .page-content section{padding-bottom:48px;margin-bottom:48px}
+  .route-card,.directory-entry{min-height:0}
+  .route-card{padding:23px}
+  .directory-entry{padding:23px}
+  .search-field,.search-field input{width:100%;min-width:0}
+  .directory-tools{display:block}
+  .filters{margin-top:14px}
+  .institute-priorities{padding:22px;margin-bottom:12px}
+  .institute-priorities .section-head{padding-bottom:20px}
+  .priority-grid article,.spotlight-grid article{padding:20px}
+  .state-efforts{margin-bottom:50px}
+  .tracking-tool{padding:22px}
+  .tracking-tool .button,.source-links a{width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere}
+  .source-panel{padding:22px}
+  .source-links a{gap:12px}
+  .feature-card:first-child h3{font-size:clamp(2.15rem,10vw,2.9rem)}
+  .feature-card h3{font-size:2.1rem}
+  .application-context h2{font-size:clamp(2.25rem,10vw,3rem)}
+  .application-form{min-width:0}
+  .footer-nav{flex-wrap:wrap}
+}
+@media(max-width:390px){
+  .header-inner{gap:6px}
+  .wordmark-main{font-size:1.5rem}
+  .wordmark-sub{font-size:.4rem;letter-spacing:.11em}
+  .mobile-donate{padding:8px;font-size:.65rem}
+  .menu-toggle{padding:7px;font-size:.7rem}
+  .home-hero h1,.page-hero h1{font-size:clamp(2.65rem,11vw,3.25rem)}
+  h2{font-size:clamp(2.1rem,10vw,2.55rem)}
+  .eyebrow{font-size:.62rem}
+  .hero-index>a{grid-template-columns:27px minmax(0,1fr) 14px;gap:8px}
+  .hero-index>a strong{font-size:1.08rem}
+}
